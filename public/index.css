@@ -1,0 +1,27 @@
+#header {
+    text-align: center;
+}
+
+.navigation {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10px;
+}
+
+#linkList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f1f1f1;
+    width: 200px;
+}
+
+#listitems a {
+    display: block;
+}
+
+#listitems:hover {
+    background-color: #555555;
+    color: white;
+}

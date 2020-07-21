@@ -1,0 +1,21 @@
+{
+  "name": "whereisiss",
+  "version": "1.0.0",
+  "description": "First Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Website",
+    "ISS",
+    "space"
+  ],
+  "author": "Haydn Greenfield",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  }
+}

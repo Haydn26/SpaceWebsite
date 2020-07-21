@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="roverPics.css"/>
+</head>
+<body>
+    <h1>Mars Rover Pictures</h1>
+    <form action="#" method="POST" id="RoverForm" class="RoverForm">
+        <fieldset>
+            <div class="RoverSelection">
+                <label for="rovers">Select Rover</label>
+                <select name="rovers" id="rovers">
+                    <option value="curiosity">Curiosity</option>
+                    <option value="opportunity">Opportunity</option>
+                    <option value="spirit">Spirit</option>
+                </select>
+            </div>
+            <div class="CameraSelection">
+                <label for="cameras">Select a camera</label>
+                <select name="cameras" id="cameras">
+                    <!----Populated via RoverPicsOptionControl.js---->
+                </select>
+            </div>
+        </fieldset>
+    </form>
+    <a id="roverImage">
+        <img id="RoverImg" alt="rover">
+    </a>
+
+
+    <script src="roverPicsOptionControl.js"></script>
+    <script src="roverPics.js"></script>
+</body>
