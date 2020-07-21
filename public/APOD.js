@@ -51,17 +51,17 @@ async function getNewPicture() {
     
     
     if (selectedmonth < mm){
-        url = 'https://api.nasa.gov/planetary/apod?api_key=C7m8CxhDBLLztUzfdZbfaNststO2kWyWugwLaokK&date=' + date;
+        url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`;
         let pic = await fetch(url);
         let dat = await pic.json();
         document.getElementById("APODImg").src = dat.url;
     } else if (selectedday <= dd && selectedmonth <= mm){
-        url = 'https://api.nasa.gov/planetary/apod?api_key=C7m8CxhDBLLztUzfdZbfaNststO2kWyWugwLaokK&date=' + date;
+        url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`
         let pic = await fetch(url);
         let dat = await pic.json();
         document.getElementById("APODImg").src = dat.url;
     } else if (selectedYear < yyyy){
-        url = 'https://api.nasa.gov/planetary/apod?api_key=C7m8CxhDBLLztUzfdZbfaNststO2kWyWugwLaokK&date=' + date;
+        url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`;
         let pic = await fetch(url);
         let dat = await pic.json();
         document.getElementById("APODImg").src = dat.url;
