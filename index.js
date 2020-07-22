@@ -5,14 +5,14 @@ const fetch = require("node-fetch");
 const app = express();
 const API_KEY = process.env.API_KEY; 
 const port = process.env.PORT || process.env.port;  
-app.use(express.static('public'));
+app.use(express.static('public/'));
+let pic;
 
 
 app.listen(`${port}`, () => {
     console.log(`Server is listening on port: ${port}`);
 });
 
-let pic;
 
 app.get('/roverApi/:rover/:cam', async (request,response) => {
     const rover = request.params.rover;
@@ -40,23 +40,26 @@ app.get('/roverApi/:rover/:cam', async (request,response) => {
 app.get('/apod/:date', async (request, response) => {
 
     const requestDate = new Date(request.params.date);
-    console.log(requestDate);
 
     var selectedday = requestDate.getDate();
-    console.log(selectedday);
     var selectedmonth = requestDate.getMonth();
-    console.log(selectedmonth);
     var selectedYear = requestDate.getFullYear();
-    console.log(selectedYear);
     var date = selectedYear + '-' + selectedmonth + '-' + selectedday;
 
     const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`;
 
     const apodApiCall = await fetch(url);
-    //console.log(apodApiCall);
     const apodJson = await apodApiCall.json();
-    //console.log(apodJson);
 
     response.json(apodJson);
 
+})
+
+app.get('/locateISS', async (request, response) => {
+    const iss_url = 'https://api.wheretheiss.at/v1/satellites/25544'
+
+    const ISSApiresponse = await fetch(iss_url);
+    const data = await ISSApiresponse.json();
+
+    response.json(data);
 })
