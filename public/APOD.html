@@ -8,12 +8,15 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="APOD.css"/>
+    <link rel="stylesheet" type="text/css" href="common.css"/>
 </head>
 <body>
-    <h1 id="APODHeader"> 
-        Astronomy Picture of the Day
-    </h1>
-    <a id="Home" href="index.html">Home</a></br>
+    <div class="header">
+        <h1 id="APODHeader"> 
+            Astronomy Picture of the Day
+        </h1>
+        <button id="button" onclick="location.href='index.html'" type="button">Home</button>
+    </div>
 
     <p>Date: <input type="text" id="datepicker"></p>
     <img id="APODImg" alt="APOD" style="width: 500px;height: 500px;">

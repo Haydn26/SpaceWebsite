@@ -12,11 +12,16 @@
         crossorigin=""></script>
 
         <link rel="stylesheet" type="text/css" href="ISS.css"/>
+        <link rel="stylesheet" type="text/css" href="common.css"/>
+
 
     </head>
     <body>
-        <h1 id="header">Where is the ISS?</h1>
-        <a id="Home" href="index.html">Home</a></br>
+        <div class="header">
+            <h1>Where is the ISS?</h1>
+            <button id="button" onclick="location.href='index.html'" type="button">Home</button>
+        </div>
+        <div class="divider"></div>
 
         <div id="issMap"></div>
 

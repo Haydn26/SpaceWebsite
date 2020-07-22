@@ -4,16 +4,34 @@
         <meta charset="UTF-8">
 
         <link rel="stylesheet" type="text/css" href="index.css"/>
+        <link rel="stylesheet" type="text/css" href="common.css"/>
 
     </head>
     <body>
-        <h1 id="header">Home Page</h1>
-        <div class="navigation">
-            <ul id="linkList">
-                <li id="listitems"><a href="ISS.html">ISS Location</a></li>
-                <li id="listitems"><a href="APOD.html">Astronomy Picture of the Day</a></li>
-                <li id="listitems"><a href="RoverPics.html">Rover Picutres</a></li>
-            </ul>
+        <div class="site-container">
+            <div class="header">
+                <h1>Home Page</h1>
+            </div>
+            <div class="entry">
+                <div class="iss-Item">
+                    <svg class="circles" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Using g to inherit presentation attributes -->
+                        <g fill="white" stroke="green" stroke-width="3">
+                          <circle cx="40" cy="40" r="20" />
+                          <circle cx="60" cy="60" r="20" />
+                        </g>
+                      </svg>
+                    <h3 id="IssTitle">See where the ISS is</h3>
+                    <button class="button" onclick="location.href='ISS.html'" type="button">ISS</button>
+                </div>
+                <div class="APOD-Item">
+                    <button class="button" onclick="location.href='APOD.html'" type="button">Astronomy Picture of the Day</button>
+                </div>
+                <div class="rover-item">
+                    <button class="button" onclick="location.href='RoverPics.html'" type="button">Rover Pictures</button>
+                </div>
+
+            </div>
         </div>
 
         <script></script>
