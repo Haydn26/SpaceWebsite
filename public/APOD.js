@@ -1,23 +1,26 @@
-require('dotenv').config();
-
-
-const API_KEY = process.env.API_KEY;
-
-let url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
-
-async function getAPOD(){
-    const apod = await fetch(url);
-    const data = await apod.json();
-    document.getElementById("APODImg").src = data.url;
-};
-getAPOD();
 
 $(function () {
     $('#datepicker').datepicker();
 })
 
-async function getNewPicture() {
+window.onload = async function(e) {
+    const date = getTodaysDate();
+    const apod = await fetch(`/apod/${date}`);
+    const json = await apod.json();
+    console.log(json);
+    document.getElementById("APODImg").src = json.url;
+}
 
+document.getElementById("datepicker").onchange = async function(e){
+    let date = new Date(document.getElementById('datepicker').value);
+
+    const apodimg = await fetch(`/apod/${date}`);
+    const apodjson = await apodimg.json();
+    document.getElementById("APODImg").src = apodjson.url;
+
+}
+
+function getTodaysDate() {
     let today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth() + 1;
@@ -30,42 +33,5 @@ async function getNewPicture() {
         mm = '0' + mm;
     }
 
-    var now = mm + '/' + dd + '/' + yyyy;
-
-    let selectDate = new Date(document.getElementById('datepicker').value);
-    console.log(selectDate.getMonth() + 1);
-    console.log(mm);
-
-    var selectedday = selectDate.getDate();
-    var selectedmonth = selectDate.getMonth();
-    var selectedYear = selectDate.getFullYear();
-    var date = selectedYear + '-' + selectedmonth + '-' + selectedday;
-
-
-    if (selectedday < 10){
-        selectedday = '0' + selectedday;
-    }
-    if (selectedmonth < 10) {
-        selectedmonth = '0' + selectedmonth;
-    }
-    
-    
-    if (selectedmonth < mm){
-        url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`;
-        let pic = await fetch(url);
-        let dat = await pic.json();
-        document.getElementById("APODImg").src = dat.url;
-    } else if (selectedday <= dd && selectedmonth <= mm){
-        url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`
-        let pic = await fetch(url);
-        let dat = await pic.json();
-        document.getElementById("APODImg").src = dat.url;
-    } else if (selectedYear < yyyy){
-        url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`;
-        let pic = await fetch(url);
-        let dat = await pic.json();
-        document.getElementById("APODImg").src = dat.url;
-    } else {
-        alert("The date needs to be a date in the past or today's date");
-    }
+    return yyyy + '-' + mm + '-' + dd;
 }
