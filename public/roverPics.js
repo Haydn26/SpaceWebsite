@@ -6,7 +6,6 @@ document.forms['RoverForm'].elements['cameras'].onchange = async function(e) {
 
     const apiCall = await fetch(`/roverApi/${rover}/${cam}`);
     const response = await apiCall.json();
-    console.log(response);
     document.getElementById("RoverImg").src = response;
     document.getElementById("roverImage").href = response;
 }

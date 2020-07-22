@@ -20,12 +20,8 @@ app.get('/roverApi/:rover/:cam', async (request,response) => {
     
     const Roverurl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=1000&api_key=${API_KEY}`;
 
-    console.log(Roverurl);
-
     const fetch_response = await fetch(Roverurl);
-    console.log(fetch_response);
     const json =  await fetch_response.json();
-    console.log(json);
 
     for (let i = 0; i < json.photos.length; i++) {
         let CamObj = json.photos[i].camera;
