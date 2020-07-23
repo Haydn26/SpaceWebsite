@@ -1,10 +1,6 @@
-.header {
-    position: relative;
-    padding: 15px;
+#HeaderText {
     text-align: center;
-    background: #1abc9c;
     color: white;
-    font-size: 30px;
 }
 
 .divider{
@@ -30,4 +26,16 @@
 
 #button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.navbar-nav {
+    float:none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    float:none;
 }
