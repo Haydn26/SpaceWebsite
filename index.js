@@ -1,6 +1,7 @@
 require('dotenv').config();
+const db = require("nedb");
 const express = require("express");
-const { response } = require("express");
+const { response, request } = require("express");
 const fetch = require("node-fetch");
 const app = express();
 const API_KEY = process.env.API_KEY; 
@@ -8,6 +9,8 @@ const port = process.env.PORT || process.env.port;
 app.use(express.static('public/'));
 let pic;
 
+const database = new db('database.db');
+database.loadDatabase();
 
 app.listen(`${port}`, () => {
     console.log(`Server is listening on port: ${port}`);
@@ -49,7 +52,7 @@ app.get('/apod/:date', async (request, response) => {
 
     response.json(apodJson);
 
-})
+});
 
 app.get('/locateISS', async (request, response) => {
     const iss_url = 'https://api.wheretheiss.at/v1/satellites/25544'
@@ -58,4 +61,12 @@ app.get('/locateISS', async (request, response) => {
     const data = await ISSApiresponse.json();
 
     response.json(data);
-})
+});
+
+app.post('/ContactUs', async (request, response) => {
+
+    const data = request.body;
+
+    database.insert(data);
+    response.json(data);
+});

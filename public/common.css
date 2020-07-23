@@ -1,3 +1,5 @@
+
+
 #HeaderText {
     text-align: center;
     color: white;
@@ -38,4 +40,8 @@
 .navbar-nav > li {
     display: inline-block;
     float:none;
+}
+
+.sideview {
+    background-color: blue;
 }
