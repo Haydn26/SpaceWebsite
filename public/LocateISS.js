@@ -24,5 +24,11 @@ async function IssLocation(){
     }
 };
 
-window.onload = IssLocation();
+$('#MapModal').on('show.bs.modal', function(){
+    setTimeout(function() {
+      mymap.invalidateSize();
+    }, 10);
+   });
+
+//document.getElementById("ModalButton").onclick = IssLocation();
 setInterval(IssLocation, 1000);

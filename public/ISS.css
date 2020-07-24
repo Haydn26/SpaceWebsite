@@ -1,8 +1,12 @@
 #issMap { 
-    height: 180px; 
+    height: 400px; 
     padding: 75px;
 }
 
 #header {
     text-align: center;
+}
+
+.row {
+    margin-bottom: 10px;
 }
