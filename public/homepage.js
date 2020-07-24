@@ -7,15 +7,22 @@ document.getElementById("SendButton").onclick = async function() {
 
     let message = { name, email, subject, usermessage };
 
-    const options = {
+    const response = await fetch(`/ContactUs`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(message)
-      };
-
-    console.log(options);
-    const response = await fetch(`/ContactUs`, options);
+      });
     const data = await response.json();
+    console.log(data);
 };
+
+document.getElementById("LoginButton").onclick = async function() {
+    let username = document.getElementById("user").value;
+    let password = document.getElementById("pass").value;
+
+    const data = await fetch(`/users/${username}/${password}`);
+    const dataJson = await data.json();
+    console.log(dataJson);
+}

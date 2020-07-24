@@ -7,10 +7,13 @@ const app = express();
 const API_KEY = process.env.API_KEY; 
 const port = process.env.PORT || process.env.port;  
 app.use(express.static('public/'));
+app.use(express.json({ limit: '1mb' }));
 let pic;
 
 const database = new db('database.db');
 database.loadDatabase();
+const datastore = new db('credentials.db');
+datastore.loadDatabase();
 
 app.listen(`${port}`, () => {
     console.log(`Server is listening on port: ${port}`);
@@ -64,9 +67,53 @@ app.get('/locateISS', async (request, response) => {
 });
 
 app.post('/ContactUs', async (request, response) => {
-
     const data = request.body;
 
     database.insert(data);
     response.json(data);
 });
+
+app.get('/users/:user/:password', (request, response) => {
+    
+    datastore.insert({UserName: 'Haydn.Greenfield', Password: 'Testing'});
+
+    console.log('We are in the users API');
+    const password = request.params.password;
+    const username = request.params.user;
+
+    console.log(password);
+    console.log(username);
+
+    const dbuser = datastore.find({UserName: `${username}`}, function (err, docs) {
+        if (err) {
+            response.json({
+                Success: false
+            })
+            response.end();
+            return;
+        }
+
+    console.log(docs);
+
+    // for (let i = 0; i < docs.length; i++){
+    //     if (docs[i].UserName === username){
+    //         if (docs[i].password === password) {
+    //             response.json({
+    //                 Success: true
+    //             })
+    //         }
+    //         else{
+    //             response.json({
+    //                 Success: false
+    //             })
+    //         }
+    //     }
+    //     else {
+    //         response.json({
+    //             Success: false
+    //         })
+    //     }
+    // }
+
+    });
+})
