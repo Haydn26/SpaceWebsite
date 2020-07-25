@@ -1,0 +1,6 @@
+
+getStars();
+
+function getStars() {
+
+}

@@ -54,6 +54,5 @@ document.getElementById("LoginButton").onclick = async function() {
     if (dataJson.Success === true){
       window.location.href = "Admin.html"
     }
-
 }
 

@@ -14,6 +14,8 @@ const database = new db('database.db');
 database.loadDatabase();
 const datastore = new db('credentials.db');
 datastore.loadDatabase();
+const starsDB = new db('stars.db');
+starsDB.loadDatabase();
 
 app.listen(`${port}`, () => {
     console.log(`Server is listening on port: ${port}`);
@@ -80,7 +82,7 @@ app.post('/ContactUs', async (request, response) => {
 app.get('/users/:user/:password', (request, response) => {
     const password = request.params.password;
     const username = request.params.user;
-    
+
     const dbuser = datastore.find({UserName: `${username}`}, function (err, docs) {
         if (err) {
             response.json({
@@ -114,3 +116,18 @@ app.get('/users/:user/:password', (request, response) => {
 
     });
 })
+
+app.get('/Star', (request, response) => {
+    starsDB.find({}, function (err, docs) {
+        if (err){
+            response.end();
+        } else {
+            response.json(docs);
+        }
+    })
+});
+
+app.post('/Star', (request, response) => {
+    const newStar = request.body;
+    starsDB.insert(newStar);
+});
