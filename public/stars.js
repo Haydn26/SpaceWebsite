@@ -1,6 +1,0 @@
-
-getStars();
-
-function getStars() {
-
-}
