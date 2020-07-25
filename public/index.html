@@ -25,7 +25,7 @@
     <div class="jumbotron"
         style="background-image: url('assets/pulsar-831502910.jpg'); background-size: cover; background-repeat: no-repeat;">
         <h1 id="HeaderText"><strong>Spacey Things</strong></h1>
-        <p id="HeaderText">Everything you <strong>want</strong> to know about space</p>
+        <p id="HeaderText">Everything you <strong>want</strong> to know about space. Well, maybe not <strong>everything</strong></p>
     </div>
 
     <div class="container-fluid">
@@ -40,6 +40,8 @@
                             home where crews of astronauts and cosmonauts live. The space station is also a unique
                             science laboratory. Several nations worked together to build and use the space station
                         </div>
+                    </div>
+                    <div class="col-sm-8">
                     </div>
                 </div>
                 <button type="button" onclick="location.href='ISS.html'" class="btn btn-default">ISS</button>
@@ -130,6 +132,8 @@
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                         <button class="btn btn-unique" id="SendButton">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+                        <p id="MessageSent" style="color: green; display: none;">Your Message Was Sent</p>
+                        <p id="MessageNotSent" style="color: red; display: none;">Your Message Was Not Sent</p>
                     </div>
                 </div>
             </div>
@@ -177,7 +181,7 @@
                 <a class="nav-link" href="#">References</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#modalContactForm">Contact Us</a>
+                <a id="ContactNav" class="nav-link" data-toggle="modal" data-target="#modalContactForm">Contact Us</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" data-target="#modalLoginForm">Admin</a>

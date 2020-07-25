@@ -70,20 +70,17 @@ app.post('/ContactUs', async (request, response) => {
     const data = request.body;
 
     database.insert(data);
-    response.json(data);
+
+    response.json({
+        success: true,
+        data
+    });
 });
 
 app.get('/users/:user/:password', (request, response) => {
-    
-    datastore.insert({UserName: 'Haydn.Greenfield', Password: 'Testing'});
-
-    console.log('We are in the users API');
     const password = request.params.password;
     const username = request.params.user;
-
-    console.log(password);
-    console.log(username);
-
+    
     const dbuser = datastore.find({UserName: `${username}`}, function (err, docs) {
         if (err) {
             response.json({
@@ -93,27 +90,27 @@ app.get('/users/:user/:password', (request, response) => {
             return;
         }
 
-    console.log(docs);
-
-    // for (let i = 0; i < docs.length; i++){
-    //     if (docs[i].UserName === username){
-    //         if (docs[i].password === password) {
-    //             response.json({
-    //                 Success: true
-    //             })
-    //         }
-    //         else{
-    //             response.json({
-    //                 Success: false
-    //             })
-    //         }
-    //     }
-    //     else {
-    //         response.json({
-    //             Success: false
-    //         })
-    //     }
-    // }
+    for (let i = 0; i < 1; i++){
+        if (docs[i].UserName === username){
+            if (docs[i].Password === password) {
+                response.json({
+                    Success: true
+                })
+            }
+            else{
+                response.json({
+                    Success: false
+                })
+                response.end();
+            }
+        }
+        else {
+            response.json({
+                Success: false
+            })
+            response.end();
+        }
+    }
 
     });
 })
