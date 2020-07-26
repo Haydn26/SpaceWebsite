@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script src="common.js"></script>
+    <link rel="stylesheet" type="text/css" href="../CommonFiles/common.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"
+        integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
+</head>
+
+<body>
+    <div id="headNav"></div>
+    <div class="jumbotron"
+        style="background-image: url('../assets/pulsar-831502910.jpg'); background-size: cover; background-repeat: no-repeat;">
+        <h1 id="HeaderText"><strong>Add a Star</strong></h1>
+        <p id="HeaderText">Add a star to the interactive map. Label your star and let everyone see <strong>your</strong>
+            star</p>
+    </div>
+
+    <div class="container-fluid">
+        <div id="canvasContainer">
+            <div id="canvas"></div>
+            <script type="text/javascript">
+                loadCanvas("canvas")
+            </script>
+        </div>
+        <div id="contactModal"></div>
+        <div id="adminModal"></div>
+    </div>
+    <div id="footer"></div>
+
+    <script src="starsAdd.js"></script>
+    <script src="stars.js"></script>
+    <script src="../CommonFiles/common.js"></script>
+
+</html>

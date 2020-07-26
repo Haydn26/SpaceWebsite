@@ -1,3 +1,11 @@
+//TODO!!!! Fix where the common html files are sourced. 
+$(function() {
+  $("#footer").load("http://localhost:3000/CommonFiles/Footer.html");
+  $("#headNav").load("http://localhost:3000/CommonFiles/headNavBar.html");
+  $("#header").load("http://localhost:3000/CommonFiles/header.html");
+  $("#contactModal").load("http://localhost:3000/CommonFiles/ContactModal.html");
+  $("#adminModal").load("http://localhost:3000/CommonFiles/AdminModal.html");
+})
 
 document.getElementById("ContactNav").onclick = function() {
     let name = document.getElementById("form34");
@@ -5,16 +13,15 @@ document.getElementById("ContactNav").onclick = function() {
     let subject = document.getElementById("form32");
     let usermessage = document.getElementById("form8");
 
-    console.log(usermessage.value);
-
     if (name.value != "" || email.value != "" || subject.value != "" || usermessage.value != "") {
       name.value = "";
       email.value = "";
       subject.value = "";
       usermessage.value = "";
     }
-
-}
+    document.getElementById("MessageSent").style.display = "none";
+    document.getElementById("MessageNotSent").style.display = "none";
+};
 
 document.getElementById("SendButton").onclick = async function() {
 
@@ -35,6 +42,7 @@ document.getElementById("SendButton").onclick = async function() {
     const data = await response.json();
     
     if (data.success === true) {
+      document.getElementById("MessageNotSent").style.display ="none";
       document.getElementById("SendButton").style.display = "none";
       document.getElementById("MessageSent").style.display = "unset";
     } else {
@@ -49,10 +57,10 @@ document.getElementById("LoginButton").onclick = async function() {
     const data = await fetch(`/users/${username}/${password}`);
     const dataJson = await data.json();
 
-    console.log(dataJson.Success);
+    console.log(dataJson);
     
-    if (dataJson.Success === true){
+    if (dataJson.status === 200){
       window.location.href = "Admin.html"
     }
-}
+};
 

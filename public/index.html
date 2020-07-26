@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <link rel="stylesheet" type="text/css" href="common.css" />
+    <link rel="stylesheet" type="text/css" href="CommonFiles/common.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
@@ -18,31 +18,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="ISS.html">ISS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="APOD.html">APOD</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="RoverPics.html">Rovers</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Stars.html">Add a Star</a>
-            </li>
-        </ul>
-    </nav>
+    <div id="headNav"></div>
+
     <div class="jumbotron"
-        style="background-image: url('assets/pulsar-831502910.jpg'); background-size: cover; background-repeat: no-repeat;">
+        style="background-image: url('../assets/pulsar-831502910.jpg'); background-size: cover; background-repeat: no-repeat;">
         <h1 id="HeaderText"><strong>Spacey Things</strong></h1>
         <p id="HeaderText">Everything you <strong>want</strong> to know about space. Well, maybe not
             <strong>everything</strong></p>
@@ -64,7 +50,7 @@
                     <div class="col-sm-8">
                     </div>
                 </div>
-                <button type="button" onclick="location.href='ISS.html'" class="btn btn-default">ISS</button>
+                <button type="button" onclick="location.href='ISS/ISS.html'" class="btn btn-default">ISS</button>
             </div>
             <div class="col-sm-1"></div>
         </div>
@@ -84,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" onclick="location.href='APOD.html'" class="btn btn-default">Astronomy
+                <button type="button" onclick="location.href='APOD/APOD.html'" class="btn btn-default">Astronomy
                     Picture of the Day</button>
             </div>
             <div class="col-sm-1"></div>
@@ -107,112 +93,26 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" onclick="location.href='RoverPics.html'" class="btn btn-default">Rover
+                <button type="button" onclick="location.href='Rover/RoverPics.html'" class="btn btn-default">Rover
                     Pictures</button>
             </div>
             <div class="col-sm-1"></div>
         </div>
 
+        
         <!---Modals--->
-        <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header text-center">
-                        <h4 class="modal-title w-100 font-weight-bold">CONTACT US</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body mx-3">
-                        <div class="md-form mb-5">
-                            <i class="fas fa-user prefix grey-text"></i>
-                            <input type="text" id="form34" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="form34">Your name</label>
-                        </div>
+        <div id="contactModal"></div>
+        <div id="adminModal"></div>
 
-                        <div class="md-form mb-5">
-                            <i class="fas fa-envelope prefix grey-text"></i>
-                            <input type="email" id="form29" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="form29">Your email</label>
-                        </div>
 
-                        <div class="md-form mb-5">
-                            <i class="fas fa-tag prefix grey-text"></i>
-                            <input type="text" id="form32" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="form32">Subject</label>
-                        </div>
-
-                        <div class="md-form">
-                            <i class="fas fa-pencil prefix grey-text"></i>
-                            <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
-                            <label data-error="wrong" data-success="right" for="form8">Your message</label>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-unique" id="SendButton">Send <i
-                                class="fas fa-paper-plane-o ml-1"></i></button>
-                        <p id="MessageSent" style="color: green; display: none;">Your Message Was Sent</p>
-                        <p id="MessageNotSent" style="color: red; display: none;">Your Message Was Not Sent</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header text-center">
-                        <h4 class="modal-title w-100 font-weight-bold">Admin Login</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body mx-3">
-                        <div class="md-form mb-5">
-                            <i class="fas fa-user prefix grey-text"></i>
-                            <input type="text" id="user" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="form34">Username</label>
-                        </div>
-
-                        <div class="md-form mb-5">
-                            <i class="fas fa-envelope prefix grey-text"></i>
-                            <input type="password" id="pass" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="form29">Password</label>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-unique" id="LoginButton">Login <i
-                                class="fas fa-paper-plane-o ml-1"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link">APIs</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">References</a>
-            </li>
-            <li class="nav-item">
-                <a id="ContactNav" class="nav-link" data-toggle="modal" data-target="#modalContactForm">Contact Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#modalLoginForm">Admin</a>
-            </li>
-        </ul>
-    </nav>
+
+    <div id="footer"></div>
 
     <script src="homepage.js"></script>
-    <script src="common.js"></script>
+    <script src="CommonFiles/common.js"></script>
 
 
 </body>
