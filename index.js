@@ -76,7 +76,7 @@ function validData(body) {
   );
 }
 
-app.post("/ContactUs", async (request, response) => {
+app.post("/ContactUs", (request, response) => {
   const data = request.body;
   console.log(data);
   console.log(validData(data));
@@ -94,11 +94,25 @@ app.post("/ContactUs", async (request, response) => {
   }
 });
 
+app.get("/ContactUs", (req, res) => {
+    const remarks = database.find({}, function ( err, docs) {
+      if (err){
+        res.status(422);
+        res.json("Unable To Return any Responses")
+        return;
+      }
+      res.json(docs);
+    })
+});
+
 app.get("/users/:user/:password", (request, response) => {
   const password = request.params.password;
   const username = request.params.user;
 
-  const dbuser = datastore.find({ UserName: `${username}` }, function (err, docs) {
+  const dbuser = datastore.find({ UserName: `${username}` }, function (
+    err,
+    docs
+  ) {
     if (err) {
       response.status(422);
       response.end();
@@ -106,13 +120,15 @@ app.get("/users/:user/:password", (request, response) => {
     }
 
     for (let i = 0; i < 1; i++) {
-      if (docs[i].UserName == username){
-        if (docs[i].Password == password){
+      if (docs[i].UserName == username) {
+        if (docs[i].Password == password) {
           let id = docs[i]._id;
 
-          datastore.update({UserName: username}, {$set: {Token: "testing"}}, function (err, num) {
-
-          });
+          datastore.update(
+            { UserName: username },
+            { $set: { Token: "testing" } },
+            function (err, num) {}
+          );
           response.json(docs);
         }
       } else {

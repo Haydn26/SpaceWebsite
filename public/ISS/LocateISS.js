@@ -31,5 +31,4 @@ $('#MapModal').on('show.bs.modal', function(){
     }, 10);
    });
 
-//document.getElementById("ModalButton").onclick = IssLocation();
 setInterval(IssLocation, 1000);
