@@ -22,6 +22,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
 </head>
 
 <body>
@@ -48,8 +52,10 @@
         style="background-image: url('assets/pulsar-831502910.jpg'); background-size: cover; background-repeat: no-repeat;">
         <h1 id="HeaderText"><strong>Astonomy picture of the Day</strong></h1>
     </div>
-
-    <p>Date: <input type="text" id="datepicker"></p>
-    <img id="APODImg" alt="APOD" style="width: 500px;height: 500px;">
+    
+    <div class="container-fluid">        
+        <p>Date: <input type="text" id="datepicker"></p>
+        <img id="APODImg" alt="APOD" style="width: 500px;height: 500px;">
+    </div>
     <script src="APOD.js"></script>
 </body>

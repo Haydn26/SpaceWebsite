@@ -5,16 +5,15 @@ document.getElementById("ContactNav").onclick = function() {
     let subject = document.getElementById("form32");
     let usermessage = document.getElementById("form8");
 
-    console.log(usermessage.value);
-
     if (name.value != "" || email.value != "" || subject.value != "" || usermessage.value != "") {
       name.value = "";
       email.value = "";
       subject.value = "";
       usermessage.value = "";
     }
-
-}
+    document.getElementById("MessageSent").style.display = "none";
+    document.getElementById("MessageNotSent").style.display = "none";
+};
 
 document.getElementById("SendButton").onclick = async function() {
 
@@ -35,6 +34,7 @@ document.getElementById("SendButton").onclick = async function() {
     const data = await response.json();
     
     if (data.success === true) {
+      document.getElementById("MessageNotSent").style.display ="none";
       document.getElementById("SendButton").style.display = "none";
       document.getElementById("MessageSent").style.display = "unset";
     } else {
@@ -54,5 +54,5 @@ document.getElementById("LoginButton").onclick = async function() {
     if (dataJson.Success === true){
       window.location.href = "Admin.html"
     }
-}
+};
 
