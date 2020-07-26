@@ -1,7 +1,7 @@
 require("dotenv").config();
 const db = require("nedb");
 const express = require("express");
-const { response, request } = require("express");
+const { response, request, json } = require("express");
 const fetch = require("node-fetch");
 const app = express();
 const API_KEY = process.env.API_KEY;
@@ -98,35 +98,26 @@ app.get("/users/:user/:password", (request, response) => {
   const password = request.params.password;
   const username = request.params.user;
 
-  const dbuser = datastore.find({ UserName: `${username}` }, function (
-    err,
-    docs
-  ) {
+  const dbuser = datastore.find({ UserName: `${username}` }, function (err, docs) {
     if (err) {
-      response.json({
-        Success: false,
-      });
+      response.status(422);
       response.end();
       return;
     }
 
     for (let i = 0; i < 1; i++) {
-      if (docs[i].UserName === username) {
-        if (docs[i].Password === password) {
-          response.json({
-            Success: true,
+      if (docs[i].UserName == username){
+        if (docs[i].Password == password){
+          let id = docs[i]._id;
+
+          datastore.update({UserName: username}, {$set: {Token: "testing"}}, function (err, num) {
+
           });
-        } else {
-          response.json({
-            Success: false,
-          });
-          response.end();
+          response.json(docs);
         }
       } else {
-        response.json({
-          Success: false,
-        });
-        response.end();
+        response.status(422);
+        response.json("Incorrect username or password");
       }
     }
   });

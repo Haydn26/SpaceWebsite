@@ -49,9 +49,9 @@ document.getElementById("LoginButton").onclick = async function() {
     const data = await fetch(`/users/${username}/${password}`);
     const dataJson = await data.json();
 
-    console.log(dataJson.Success);
+    console.log(dataJson);
     
-    if (dataJson.Success === true){
+    if (dataJson.status === 200){
       window.location.href = "Admin.html"
     }
 };
