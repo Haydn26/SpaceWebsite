@@ -3,6 +3,8 @@ $(function() {
   $("#footer").load("http://localhost:3000/CommonFiles/Footer.html");
   $("#headNav").load("http://localhost:3000/CommonFiles/headNavBar.html");
   $("#header").load("http://localhost:3000/CommonFiles/header.html");
+  $("#contactModal").load("http://localhost:3000/CommonFiles/ContactModal.html");
+  $("#adminModal").load("http://localhost:3000/CommonFiles/AdminModal.html");
 })
 
 document.getElementById("ContactNav").onclick = function() {
