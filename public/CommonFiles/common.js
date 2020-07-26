@@ -1,3 +1,9 @@
+//TODO!!!! Fix where the common html files are sourced. 
+$(function() {
+  $("#footer").load("http://localhost:3000/CommonFiles/Footer.html");
+  $("#headNav").load("http://localhost:3000/CommonFiles/headNavBar.html");
+  $("#header").load("http://localhost:3000/CommonFiles/header.html");
+})
 
 document.getElementById("ContactNav").onclick = function() {
     let name = document.getElementById("form34");

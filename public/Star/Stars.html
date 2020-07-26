@@ -4,7 +4,7 @@
 <head>
 
     <script src="common.js"></script>
-    <link rel="stylesheet" type="text/css" href="common.css" />
+    <link rel="stylesheet" type="text/css" href="../CommonFiles/common.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"
         integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA=="
         crossorigin="anonymous"></script>
@@ -20,30 +20,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="ISS.html">ISS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="APOD.html">APOD</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="RoverPics.html">Rovers</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Stars.html">Add a Star</a>
-            </li>
-        </ul>
-    </nav>
+    <div id="headNav"></div>
     <div class="jumbotron"
-        style="background-image: url('assets/pulsar-831502910.jpg'); background-size: cover; background-repeat: no-repeat;">
+        style="background-image: url('../assets/pulsar-831502910.jpg'); background-size: cover; background-repeat: no-repeat;">
         <h1 id="HeaderText"><strong>Add a Star</strong></h1>
         <p id="HeaderText">Add a star to the interactive map. Label your star and let everyone see <strong>your</strong>
             star</p>
@@ -134,26 +119,10 @@
             </div>
         </div>
 
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link">APIs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">References</a>
-                </li>
-                <li class="nav-item">
-                    <a id="ContactNav" class="nav-link" data-toggle="modal" data-target="#modalContactForm">Contact
-                        Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#modalLoginForm">Admin</a>
-                </li>
-            </ul>
-        </nav>
+        <div id="footer"></div>
 
         <script src="starsAdd.js"></script>
         <script src="stars.js"></script>
-</body>
+        <script src="../CommonFiles/common.js"></script>
 
 </html>
