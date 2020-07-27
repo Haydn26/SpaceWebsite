@@ -7,7 +7,7 @@ $(function() {
   $("#adminModal").load("http://localhost:3000/CommonFiles/AdminModal.html");
 })
 
-document.getElementById("ContactNav").onclick = function() {
+document.getElementById("contactModal").onclick = function() {
     let name = document.getElementById("form34");
     let email = document.getElementById("form29");
     let subject = document.getElementById("form32");
@@ -21,6 +21,7 @@ document.getElementById("ContactNav").onclick = function() {
     }
     document.getElementById("MessageSent").style.display = "none";
     document.getElementById("MessageNotSent").style.display = "none";
+    document.getElementById("SendButton").style.display = "unset";
 };
 
 document.getElementById("SendButton").onclick = async function() {

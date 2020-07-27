@@ -78,8 +78,6 @@ function validData(body) {
 
 app.post("/ContactUs", (request, response) => {
   const data = request.body;
-  console.log(data);
-  console.log(validData(data));
 
   if (validData(data)) {
     database.insert(data);
