@@ -57,6 +57,7 @@ app.get("/apod/:date", async (request, response) => {
 });
 
 app.get("/locateISS", async (request, response) => {
+
   const iss_url = "https://api.wheretheiss.at/v1/satellites/25544";
 
   const ISSApiresponse = await fetch(iss_url);
@@ -93,19 +94,26 @@ app.post("/ContactUs", (request, response) => {
 });
 
 app.get("/ContactUs", (req, res) => {
-    const remarks = database.find({}, function ( err, docs) {
-      if (err){
-        res.status(422);
-        res.json("Unable To Return any Responses")
-        return;
-      }
-      res.json(docs);
-    })
+  const remarks = database.find({}, function (err, docs) {
+    if (err) {
+      res.status(422);
+      res.json("Unable To Return any Responses");
+      return;
+    }
+    res.json(docs);
+  });
 });
 
-app.get("/users/:user/:password", (request, response) => {
-  const password = request.params.password;
-  const username = request.params.user;
+app.get("/users"), (req, res) => {
+
+}
+
+app.post("/login", (request, response) => {
+  const body = request.body;
+  const username = body.username;
+  const password = body.password;
+
+  console.log(username, password);
 
   const dbuser = datastore.find({ UserName: `${username}` }, function (
     err,
@@ -121,10 +129,11 @@ app.get("/users/:user/:password", (request, response) => {
       if (docs[i].UserName == username) {
         if (docs[i].Password == password) {
           let id = docs[i]._id;
+          let date = new Date().toLocaleDateString();
 
           datastore.update(
             { UserName: username },
-            { $set: { Token: "testing", TokenDate: new Date() } },
+            { $set: { Token: "testing", TokenDate: `${date}` } },
             function (err, num) {}
           );
           response.json(docs);

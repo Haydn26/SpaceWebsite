@@ -55,13 +55,22 @@ document.getElementById("LoginButton").onclick = async function() {
     let username = document.getElementById("user").value;
     let password = document.getElementById("pass").value;
 
-    const data = await fetch(`/users/${username}/${password}`);
-    const dataJson = await data.json();
 
-    console.log(dataJson);
+    const user = {username, password}
+
+    const data = await fetch(`/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    });
+    //const dataJson = await data.json();
+
+    //console.log(dataJson);
     
-    if (dataJson.status === 200){
-      window.location.href = "Admin.html"
-    }
+    // if (dataJson.status === 200){
+    //   window.location.href = "Admin.html"
+    // }
 };
 
