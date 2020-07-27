@@ -124,7 +124,7 @@ app.get("/users/:user/:password", (request, response) => {
 
           datastore.update(
             { UserName: username },
-            { $set: { Token: "testing" } },
+            { $set: { Token: "testing", TokenDate: new Date() } },
             function (err, num) {}
           );
           response.json(docs);
