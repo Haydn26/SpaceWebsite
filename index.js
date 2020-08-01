@@ -104,9 +104,36 @@ app.get("/ContactUs", (req, res) => {
   });
 });
 
-app.get("/users"), (req, res) => {
+app.get("/users/:username/:password"), (req, res) => {
+  
+  const auth = "User Authorised";
+  const notAuth = "Authorisation not allowed";
+  
+  const username = req.params.username;
+  const password = req.params.password;
+  const todaysDate = new Date().toDateString();
 
-}
+  const users = database.find({}, function (err, docs) {
+    for (let i = 0; i < docs.length; i++) {
+      if (docs[i].username === username) {
+        if (docs[i].Token !== null){
+          if (docs[i].date === date){
+            response.json(auth)
+          } else {
+            request.status(401);
+            response.json(notAuth);
+          }
+        } else {
+          request.status(401);
+          response.json(notAuth);
+        }
+      } else {
+        request.status(401);
+        response.json(notAuth);
+      }
+    }
+  })
+};
 
 app.post("/login", (request, response) => {
   const body = request.body;

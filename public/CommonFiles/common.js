@@ -54,6 +54,9 @@ document.getElementById("SendButton").onclick = async function() {
 document.getElementById("LoginButton").onclick = async function() {
     let username = document.getElementById("user").value;
     let password = document.getElementById("pass").value;
+    console.log("Were in the Login button fuction");
+    //new Admin.admin(password, username);
+
 
 
     const user = {username, password}
@@ -65,12 +68,14 @@ document.getElementById("LoginButton").onclick = async function() {
       },
       body: JSON.stringify(user)
     });
-    //const dataJson = await data.json();
+    const dataJson = await data.json();
 
-    //console.log(dataJson);
+    console.log(dataJson);
     
-    // if (dataJson.status === 200){
-    //   window.location.href = "Admin.html"
-    // }
+    if (dataJson.status === 200){
+      window.location.href = "../Admin/Admin.html"
+    }
+
+
 };
 
